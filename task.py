@@ -1,5 +1,6 @@
 from threading import Thread
 import time
+import easygui
 class Task:
     def __init__(self, remind_interval, completion_date, next_remind, description):
         self.remind_interval = remind_interval
@@ -25,7 +26,7 @@ class Task:
             print("invalid interval")
             return
         else:
-            print(self.description)
+            easygui.msgbox(self.description)
             self.next_remind += self.remind_interval
             time.sleep(self.remind_interval)
             self.show_reminders()
